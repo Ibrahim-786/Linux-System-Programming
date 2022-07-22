@@ -1,0 +1,3 @@
+1) select can be used to wait on set of files till the time they become ready for operation
+
+2) select can be provided an optional argument to timeout if none of the files become raedy for operation

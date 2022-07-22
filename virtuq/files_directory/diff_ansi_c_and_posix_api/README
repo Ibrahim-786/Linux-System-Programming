@@ -1,0 +1,53 @@
+Demonstrating difference in the performance when low level routines are used to write 16KB vs the deafult 4k blocks for ANSI C IO
+
+
+==================================================================================================================================
+1) compile with -Wall and -Werror option 
+
+eg: 
+1) gcc ansi_c_io.c -o ansi_c_io -Wall -Werror
+2) gcc posix_api.c -o posix_api -Wall -Werror
+==================================================================================================================================
+2) man 2 function name (to look man page)
+eg: man 2 open
+
+===================================================================================================================================
+time ./ansi_c_io
+real	0m1.913s
+user	0m0.682s
+sys		0m0.253s
+
+
+time strace ./ansi_c_io
+write(3, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"..., 4096) = 4096
+write(3, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"..., 4096) = 4096
+write(3, "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"..., 4096) = 4096
+close(3)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++
+
+real	0m25.964s
+user	0m1.503s
+sys	0m4.602s
+==================================================================================================================================
+
+time ./posix_api
+real	0m0.548s
+user	0m0.190s
+sys		0m0.100s
+
+
+time strace ./posix_api
+write(3, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 16384) = 16384
+write(3, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 16384) = 16384
+write(3, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 16384) = 16384
+write(3, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 16384) = 16384
+close(3)                                = 0
+exit_group(0)                           = ?
++++ exited with 0 +++
+
+real	0m6.457s
+user	0m0.415s
+sys	0m1.065s
+
+
