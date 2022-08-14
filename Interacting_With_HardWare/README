@@ -1,0 +1,17 @@
+what is meant by interacting with hardware
+
+
+1) Os kernel wraps a layer around the hardware, and blocks all direct access to hardware
+
+2) any application wishing to access hardware, must either ask kernel to do it on behalf or get access to hardware from kernel
+
+3) application must make sure to get exculsive control of hardware, how ever the kernel in general will not make any gurantee in these regards
+
+
+4) typical style of giving access to hardware is via shared memory using mmap call
+
+5) IOCTL is another way of interacting with hardware with help kernel on behalf of process tranfer data back to it
+
+6) mmap tends to be fater when accessing hardware device, however may be an elaborate protocal to be used to retrive data
+
+7) IOCTL requires contexswitch  bw user mode and kernel mode vice versa along with data coping, however they are simpler to handle as the underlying driver may do all the work of complying with the protocal  

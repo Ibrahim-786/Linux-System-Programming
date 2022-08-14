@@ -1,0 +1,9 @@
+/proc
+
+a special file system which is created on fly and deleted on fly on RAM not on system
+
+/proc/pid
+
+/proc/cpu
+
+/proc/meminfo

@@ -1,0 +1,27 @@
+Device specila files
+
+
+1) Device special file appears in the file system as normal files, provide direct access to underlying hardware via Device Drivers
+
+2) Device special files are charactrized by the file type :- block character or FIFO major or minor numbers
+
+3) major number denotes family of a device and minor number subtypes
+
+4) 
+/dev/sda   
+/dev/sda2  
+/dev/sg0  
+/dev/snapshot  
+/dev/stderr  
+/dev/stdout
+/dev/sda1  
+/dev/sda5  
+/dev/sg1  
+/dev/sr0       
+/dev/stdin
+
+5) /dev/S* is used to provide access to serial port on the system
+
+6) /dev/urandom provide access to kernel random number generator
+
+7) /dev/udev is a new system on GNU/linux systems which creates these special files on fly, rather then have a static list of files on /dev
