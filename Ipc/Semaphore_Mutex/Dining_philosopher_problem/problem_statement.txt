@@ -1,0 +1,11 @@
+
+The Dining Philosopher Problem states that there are five philosophers which do two thinks: think and eat. They share a table having a chair for each one of them. In the center of the table there is a bowl of rice and the table is laid with 5 single chopsticks (Refer Figure Below).
+
+
+https://dextutor.com/wp-content/uploads/2021/04/image.png
+
+
+When a philosopher thinks, he does not interact with others. When he gets hungry, he tries to pick up the two chopsticks that are near to him. For example, philosopher 1 will try to pick chopsticks 1 and 2. But the philosopher can pickup only one chopstick at a time. He can not take a chopstick that is already in the hands of his neighbour. The philosopher starts to eat when he has both his chopsticks in his hand. After eating the philosopher puts down both the chopsticks and starts to think again.
+
+Solution to Dining Philosopher Problem
+Represent each chopstick with a semaphore. Each philosopher first picks up the left chopstick and then the right chopstick using the wait() operation each semaphore. After eating he puts down the chopsticks by using the signal() operation on each chopstick.
