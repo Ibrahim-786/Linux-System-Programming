@@ -1,0 +1,13 @@
+1) there are 1593 commands in Linux which belongs to section 1
+
+2) there are 511 system calls in Linux which belongs to section 2
+
+3) there are 7576 library calls in Linux which belongs to section 3
+
+4) there are 42 documents details of various devices, most of which reside in /dev. which belongs to section 4
+
+5) there are 269 describes various file formats and filesystems, and includes proc(5), which documents the /proc file system. /proc
+
+7) Overviews, conventions, and miscellaneous.
+
+8) Superuser and system administration commands
