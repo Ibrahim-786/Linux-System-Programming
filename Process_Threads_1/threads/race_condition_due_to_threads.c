@@ -3,10 +3,40 @@
 #include<unistd.h>
 
 
-void *fun1();
-void *fun2();
+
 
 int shared=1; // shared variable
+
+
+void *fun1();
+void *fun1()
+{
+	int x;
+
+	x= shared; //thread1 reads the value of shared variable
+	printf("Thread1 read the value of shared variable as %d\n",x);
+	x++;
+	printf("Local updation by thread1 :%d\n",x);
+	sleep(1);
+	shared=x;
+	printf("Value of shared variable by thread1 is %d\n",shared);
+}
+
+void *fun2();
+void *fun2()
+{
+	int y;
+
+	y= shared; //thread2 reads the value of shared variable
+	printf("Thread2 read the value of shared variable as %d\n",y);
+	y--;
+	printf("Local updation by thread2 :%d\n",y);
+	sleep(1);
+	shared=y;
+	printf("Value of shared variable by thread2 is %d\n",shared);
+}
+
+
 
 
 int main()
@@ -27,30 +57,4 @@ int main()
 }
 
 
-void *fun1()
-{
-	int x;
-
-	x= shared; //thread1 reads the value of shared variable
-	printf("Thread1 read the value of shared variable as %d\n",x);
-	x++;
-	printf("Local updation by thread1 :%d\n",x);
-	sleep(1);
-	shared=x;
-	printf("Value of shared variable by thread1 is %d\n",shared);
-}
-
-
-void *fun2()
-{
-	int y;
-
-	y= shared; //thread2 reads the value of shared variable
-	printf("Thread2 read the value of shared variable as %d\n",y);
-	y--;
-	printf("Local updation by thread2 :%d\n",y);
-	sleep(1);
-	shared=y;
-	printf("Value of shared variable by thread2 is %d\n",shared);
-}
 

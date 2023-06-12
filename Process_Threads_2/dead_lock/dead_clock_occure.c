@@ -11,7 +11,7 @@
 //dead lock is situation each of the process waiting other process to complete, and hence they are not able to make progress
 
 //what is Race condition
-//when two threads access a shared variable at the same time, ended up with expected behaviour
+//when two threads access a shared variable at the same time, ended up with unexpected behaviour
 
 
 int main(int argc, char *argv[] )
